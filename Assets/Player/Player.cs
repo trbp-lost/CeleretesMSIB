@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rbody;
     private Animator animator;
 
-    public bool canControl = true;
+    [HideInInspector] public bool canControl = true;
 
     private bool _grounded = false;
 

@@ -6,14 +6,14 @@ public class DialogueCharacter
 {
     public string name;
     public Sprite icon;
+    public int iconLocation;
 }
 
 [System.Serializable]
 public class DialogueLine
 {
     public DialogueCharacter character;
-    [TextArea(3, 10)]
-    public string line;
+    [TextArea(3, 10)] public string line;
 }
 
 [System.Serializable]
