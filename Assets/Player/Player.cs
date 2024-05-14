@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rbody;
     private Animator animator;
 
+    public bool canControl = true;
+
     private bool _grounded = false;
 
     public bool Grounded
@@ -56,6 +58,8 @@ public class Player : MonoBehaviour
                 }
             }
 
+            if (!canControl) _hmove = 0;
+            
             animator.SetFloat("xSpeed", Mathf.Abs(_hmove));
         }
         get => _hmove;
@@ -67,6 +71,8 @@ public class Player : MonoBehaviour
     {
         private set
         {
+            if (!canControl) return;
+
             if (_faceRight != value)
             {
                 _faceRight = value;
@@ -90,9 +96,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         VerticalDelta = rbody.velocity.y;
-
         HMov = Input.GetAxis("Horizontal");
         Jump();
+
     }
 
     private void FixedUpdate()
@@ -104,13 +110,13 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        if (!Grounded) return;
+        if (!Grounded || !canControl) return;
         rbody.velocity = new Vector2(HMov * moveSpeed, rbody.velocity.y);
     }
 
     private void Jump()
     {
-        if(Grounded && Input.GetKeyDown(KeyCode.Space))
+        if(Grounded && Input.GetKeyDown(KeyCode.Space) && canControl)
         {
             animator.SetTrigger("jumpTrigger");
             rbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
