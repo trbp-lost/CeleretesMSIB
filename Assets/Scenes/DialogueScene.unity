@@ -737,6 +737,11 @@ MonoBehaviour:
         icon: {fileID: -6367560908665664636, guid: d348dff3819df794186a80cb95777629, type: 3}
         iconLocation: 2
       line: awkaowkoawkakawwk
+    - character:
+        name: Katak Bizer
+        icon: {fileID: -6367560908665664636, guid: cd947491a13509945aa1b644f9db3ef2, type: 3}
+        iconLocation: 1
+      line: bjir
 --- !u!1 &568791306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1939,7 @@ MonoBehaviour:
   dialogueArea: {fileID: 1394629116}
   panel: {fileID: 601327222}
   player: {fileID: 1991830075}
+  iconCharShowed: []
   iconLocation:
   - {fileID: 2132812384}
   - {fileID: 1867503910}

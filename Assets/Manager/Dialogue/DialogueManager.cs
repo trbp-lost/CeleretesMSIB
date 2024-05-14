@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     public Player player;
 
     private Queue<DialogueLine> lines;
-    private List<RectTransform> iconCharShowed;
+    [SerializeField] private List<RectTransform> iconCharShowed;
     public List<RectTransform> iconLocation;
 
     [HideInInspector] public bool isDialogueActive = false;
@@ -60,13 +60,15 @@ public class DialogueManager : MonoBehaviour
 
         DialogueLine currentLine = lines.Dequeue();
 
+        DiscoloredIcon();
+
         characterIcon.sprite = currentLine.character.icon;
         characterLocation = currentLine.character.iconLocation;
         characterName.text = currentLine.character.name;
 
 
 
-        RectTransform newImageChar = CharacterImage();
+        RectTransform newImageChar = CharacterIcon();
         //newImageChar
 
         StopAllCoroutines();
@@ -94,18 +96,21 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    private RectTransform CharacterImage()
+    private RectTransform CharacterIcon()
     {
-        RectTransform a = Instantiate(characterIcon, iconLocation[characterLocation - 1]).GetComponent<RectTransform>();
-        a.localPosition = Vector3.zero;
-        a.gameObject.SetActive(true);
+        RectTransform spawnCharIcon = Instantiate(characterIcon, iconLocation[characterLocation - 1]).GetComponent<RectTransform>();
+        spawnCharIcon.localPosition = Vector3.zero;
+        spawnCharIcon.gameObject.SetActive(true);
 
-        iconCharShowed.Insert(characterLocation - 1, a);
-        return a;
+        iconCharShowed.Insert(characterLocation - 1, spawnCharIcon);
+        return spawnCharIcon;
     }
 
-    private void discoloredIcon()
+    private void DiscoloredIcon()
     {
+        if (iconCharShowed == null) return;
+
+        Debug.Log("aaaa");
         float changeColor = 65f / 255f;
         foreach (RectTransform x in iconCharShowed)
         {
