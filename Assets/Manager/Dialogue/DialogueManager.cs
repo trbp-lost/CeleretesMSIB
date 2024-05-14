@@ -64,6 +64,8 @@ public class DialogueManager : MonoBehaviour
         characterLocation = currentLine.character.iconLocation;
         characterName.text = currentLine.character.name;
 
+
+
         RectTransform newImageChar = CharacterImage();
         //newImageChar
 
@@ -84,6 +86,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        CleanDialogue();
         isDialogueActive = false;
         //animator.Play("hide");
         player.canControl = true;
@@ -97,6 +100,7 @@ public class DialogueManager : MonoBehaviour
         a.localPosition = Vector3.zero;
         a.gameObject.SetActive(true);
 
+        iconCharShowed.Insert(characterLocation - 1, a);
         return a;
     }
 
@@ -107,6 +111,20 @@ public class DialogueManager : MonoBehaviour
         {
             Image img = x.GetComponent<Image>();
             img.color = new Color(changeColor, changeColor, changeColor);
+        }
+    }
+
+    private void CleanDialogue()
+    {
+        if (iconCharShowed != null) iconCharShowed.Clear();
+        Image[] images = GameObject.Find("Canvas").GetComponentsInChildren<Image>(true);
+
+        foreach (Image image in images)
+        {
+            if (image.name == "CharImage(Clone)")
+            {
+                Destroy(image.gameObject);
+            }
         }
     }
 }
