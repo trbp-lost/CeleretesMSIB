@@ -16,7 +16,7 @@ public class DialogueManager : MonoBehaviour
     public Player player;
 
     private Queue<DialogueLine> lines;
-    [SerializeField] private List<RectTransform> iconCharShowed;
+    [SerializeField] private List<RectTransform> listIconCharShowed;
     public List<RectTransform> iconLocation;
 
     [HideInInspector] public bool isDialogueActive = false;
@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour
 
 
 
-        RectTransform newImageChar = CharacterIcon();
+        CharacterIcon();
         //newImageChar
 
         StopAllCoroutines();
@@ -98,21 +98,51 @@ public class DialogueManager : MonoBehaviour
 
     private RectTransform CharacterIcon()
     {
+        GameObject placeIcon = GameObject.Find("Place " + characterLocation);
+
+        if (placeIcon != null)
+        {
+            Transform childTransform = placeIcon.transform.Find("CharImage(Clone)");
+            if (childTransform != null)
+            {
+                GameObject a = childTransform.gameObject;
+                Destroy(a);
+            }
+        }
+
+
         RectTransform spawnCharIcon = Instantiate(characterIcon, iconLocation[characterLocation - 1]).GetComponent<RectTransform>();
         spawnCharIcon.localPosition = Vector3.zero;
         spawnCharIcon.gameObject.SetActive(true);
 
-        iconCharShowed.Insert(characterLocation - 1, spawnCharIcon);
+        try
+        {
+            listIconCharShowed.Insert(characterLocation - 1, spawnCharIcon);
+
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+
+        listIconCharShowed.Insert(characterLocation - 1, spawnCharIcon);
+
+
+        Debug.Log("Lebar : " + listIconCharShowed.Count +
+            "\nNama : " + listIconCharShowed[characterLocation - 1].name +
+            "\nIndex ke-" + (characterLocation - 1) +
+            "\nIndex " + (characterLocation - 1) + (listIconCharShowed[characterLocation - 1] == null ? " NULL" : " NOT NULL : " + listIconCharShowed[characterLocation - 1].name)
+            );
+
         return spawnCharIcon;
     }
 
     private void DiscoloredIcon()
     {
-        if (iconCharShowed == null) return;
+        if (listIconCharShowed == null) return;
 
-        Debug.Log("aaaa");
         float changeColor = 65f / 255f;
-        foreach (RectTransform x in iconCharShowed)
+        foreach (RectTransform x in listIconCharShowed)
         {
             Image img = x.GetComponent<Image>();
             img.color = new Color(changeColor, changeColor, changeColor);
@@ -121,7 +151,7 @@ public class DialogueManager : MonoBehaviour
 
     private void CleanDialogue()
     {
-        if (iconCharShowed != null) iconCharShowed.Clear();
+        if (listIconCharShowed != null) listIconCharShowed.Clear();
         Image[] images = GameObject.Find("Canvas").GetComponentsInChildren<Image>(true);
 
         foreach (Image image in images)
