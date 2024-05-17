@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<DialogueLine> lines;
     [SerializeField] private List<RectTransform> listIconCharShowed;
+    private RectTransform spawnCharIcon;
     public List<RectTransform> iconLocation;
 
     [HideInInspector] public bool isDialogueActive = false;
@@ -66,10 +67,7 @@ public class DialogueManager : MonoBehaviour
         characterLocation = currentLine.character.iconLocation;
         characterName.text = currentLine.character.name;
 
-
-
         CharacterIcon();
-        //newImageChar
 
         StopAllCoroutines();
 
@@ -98,20 +96,10 @@ public class DialogueManager : MonoBehaviour
 
     private RectTransform CharacterIcon()
     {
-        GameObject placeIcon = GameObject.Find("Place " + characterLocation);
 
-        if (placeIcon != null)
-        {
-            Transform childTransform = placeIcon.transform.Find("CharImage(Clone)");
-            if (childTransform != null)
-            {
-                GameObject a = childTransform.gameObject;
-                Destroy(a);
-            }
-        }
+        DeleteDuplicate();
 
-
-        RectTransform spawnCharIcon = Instantiate(characterIcon, iconLocation[characterLocation - 1]).GetComponent<RectTransform>();
+        spawnCharIcon = Instantiate(characterIcon, iconLocation[characterLocation - 1]).GetComponent<RectTransform>();
         spawnCharIcon.localPosition = Vector3.zero;
         spawnCharIcon.gameObject.SetActive(true);
 
@@ -127,25 +115,37 @@ public class DialogueManager : MonoBehaviour
 
         listIconCharShowed.Insert(characterLocation - 1, spawnCharIcon);
 
-
-        Debug.Log("Lebar : " + listIconCharShowed.Count +
-            "\nNama : " + listIconCharShowed[characterLocation - 1].name +
-            "\nIndex ke-" + (characterLocation - 1) +
-            "\nIndex " + (characterLocation - 1) + (listIconCharShowed[characterLocation - 1] == null ? " NULL" : " NOT NULL : " + listIconCharShowed[characterLocation - 1].name)
-            );
-
         return spawnCharIcon;
     }
 
     private void DiscoloredIcon()
     {
+        
         if (listIconCharShowed == null) return;
 
         float changeColor = 65f / 255f;
+
         foreach (RectTransform x in listIconCharShowed)
         {
+            if (x == null) return;
             Image img = x.GetComponent<Image>();
             img.color = new Color(changeColor, changeColor, changeColor);
+        }
+    }
+
+    private void DeleteDuplicate()
+    {
+        GameObject placeIcon = GameObject.Find("Place " + characterLocation);
+
+        if (placeIcon != null)
+        {
+            Transform childTransform = placeIcon.transform.Find("CharImage(Clone)");
+            if (childTransform != null)
+            {
+                GameObject a = childTransform.gameObject;
+                Destroy(a);
+
+            }
         }
     }
 
