@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueArea;
     public GameObject panel;
     public Player player;
+    public GameObject panelDialogue;
 
     private Queue<DialogueLine> lines;
     [SerializeField] private List<RectTransform> listIconCharShowed;
@@ -36,6 +37,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        panelDialogue.SetActive(true);
+
         isDialogueActive = true;
         player.canControl = false;
         //animator.Play("show");
@@ -56,6 +59,8 @@ public class DialogueManager : MonoBehaviour
         if (lines.Count == 0)
         {
             EndDialogue();
+            panelDialogue.SetActive(false);
+
             return;
         }
 

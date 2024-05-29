@@ -15,18 +15,19 @@ public class EnemyAI : MonoBehaviour
 
     private bool isChasing = false;
     private bool isPatrolling = false;
+    private bool isfacingRight = false;
 
     private Rigidbody2D rb;
     private Vector3 originalPosition;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         originalPosition = transform.position;
         StartCoroutine(Patrolling());
     }
 
-    void Update()
+    private void Update()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
@@ -68,7 +69,7 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    void Patrol()
+    private void Patrol()
     {
         int randomX = Random.Range(-patrolRange, patrolRange);
         if (transform.position.x > originalPosition.x + patrolRange || transform.position.x < originalPosition.x - patrolRange)
@@ -96,25 +97,26 @@ public class EnemyAI : MonoBehaviour
         isPatrolling = false;
     }
 
-    void ChasePlayer()
+    private void ChasePlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;
         Vector3 chaseLenght = transform.position + new Vector3(direction.x, direction.y, transform.position.z);
-        FaceDirection(transform.position.x, player.transform.position.x);
+        FaceDirection(transform.position.x, chaseLenght.x);
 
         rb.velocity = new Vector2(direction.x * chaseSpeed, rb.velocity.y);
     }
 
-    void AttackPlayer()
+    private void AttackPlayer()
     {
         Debug.Log("Attacking the player!");
     }
 
     private void FaceDirection(float point, float target)
     {
-        if (point > target) transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        if (point < target) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (point > target ) transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (point < target ) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
     }
+
 
 }

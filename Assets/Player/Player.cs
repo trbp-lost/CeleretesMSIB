@@ -110,7 +110,6 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        if (!Grounded || !canControl) return;
         rbody.velocity = new Vector2(HMov * moveSpeed, rbody.velocity.y);
     }
 
