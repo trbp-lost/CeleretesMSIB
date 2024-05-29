@@ -11,25 +11,29 @@ public class EnemyAI : MonoBehaviour
     public int patrolRange = 5;
     public float chaselRange = 5f;
     public float patrolDelay = 3f;
-    public Transform player;
+    public Player player;
 
     private bool isChasing = false;
     private bool isPatrolling = false;
     private bool isfacingRight = false;
 
     private Rigidbody2D rb;
+    private Transform target;
     private Vector3 originalPosition;
+    private Animator animator;
 
     private void Start()
     {
+        target = player.GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         originalPosition = transform.position;
+        animator = GetComponent<Animator>();
         StartCoroutine(Patrolling());
     }
 
     private void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, target.position);
 
         if (distanceToPlayer < attackRange)
         {
@@ -39,38 +43,35 @@ public class EnemyAI : MonoBehaviour
         if (distanceToPlayer < chaselRange)
         {
             isChasing = true;
+            animator.SetBool("isMove", false);
             ChasePlayer();
 
-            CancelInvoke(nameof(Patrol));
-            //StopCoroutine(Patrolling());
         }
         else
         {
             if (isChasing)
             {
                 isChasing = false;
-                rb.velocity = Vector2.zero; // Stop chasing when player is out of range
+                rb.velocity = Vector2.zero; 
             }
 
             if (!isPatrolling)
             {
                 StartCoroutine(Patrolling());
             }
-        }
-        
-        //if (distanceToPlayer > chaselRange)
-        //{
-        //    //InvokeRepeating(nameof(Patrol), 0, patrolDelay);
-        //    Invoke(nameof(Patrol), patrolDelay);
-        //    //StartCoroutine(Patrolling());
 
-        //    isChasing = false;
-        //}
+            if (!isPatrolling && !isChasing)
+            {
+                animator.SetBool("isMove", false);
+            }
+
+        }
 
     }
 
     private void Patrol()
     {
+
         int randomX = Random.Range(-patrolRange, patrolRange);
         if (transform.position.x > originalPosition.x + patrolRange || transform.position.x < originalPosition.x - patrolRange)
         {
@@ -81,13 +82,15 @@ public class EnemyAI : MonoBehaviour
         Vector3 newDirection = new Vector3(randomX, transform.position.y, transform.position.z);
         FaceDirection(0, randomX);
 
-        //transform.position = Vector3.MoveTowards(transform.position, newDirection, patrolSpeed * Time.deltaTime);
         rb.velocity = new Vector2(newDirection.x * patrolSpeed, rb.velocity.y) ;
     }
 
     IEnumerator Patrolling()
     {
         isPatrolling = true;
+        animator.SetBool("isMove", isPatrolling);
+        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
         while (!isChasing)
         {
             Patrol();
@@ -95,11 +98,17 @@ public class EnemyAI : MonoBehaviour
         }
 
         isPatrolling = false;
+        animator.SetBool("isMove", isPatrolling);
+        Debug.Log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+
+
     }
 
     private void ChasePlayer()
     {
-        Vector2 direction = (player.position - transform.position).normalized;
+        animator.SetBool("isMove", isChasing);
+
+        Vector2 direction = (target.position - transform.position).normalized;
         Vector3 chaseLenght = transform.position + new Vector3(direction.x, direction.y, transform.position.z);
         FaceDirection(transform.position.x, chaseLenght.x);
 
@@ -116,6 +125,11 @@ public class EnemyAI : MonoBehaviour
         if (point > target ) transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
         if (point < target ) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 
 

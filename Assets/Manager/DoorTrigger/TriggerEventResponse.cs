@@ -5,16 +5,11 @@ using UnityEngine;
 public class TriggerEventResponse : MonoBehaviour
 {
     public TriggerEvent triggerObject;
+    public bool destroyRespon;
+    public bool showHideGameobject;
 
     private int triggerCounter = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         
@@ -28,7 +23,7 @@ public class TriggerEventResponse : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
 
-        if (collision.collider.tag == "Player" && triggerObject.isTrigger)
+        if (collision.collider.tag == "Player" && triggerObject.isTrigger && destroyRespon == true)
         {
             if (Input.GetKeyDown(KeyCode.F)) triggerCounter += 1;
             Debug.Log(triggerCounter);
@@ -39,5 +34,11 @@ public class TriggerEventResponse : MonoBehaviour
 
             }
         }
+
+        if (collision.collider.tag == "Player" && triggerObject.isTrigger && showHideGameobject == true)
+        {
+            gameObject.SetActive(!gameObject.active);
+        }
     }
+
 }

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float jumpForce = 5f;
 
+    private bool isDead = false;
     private Rigidbody2D rbody;
     private Animator animator;
 
@@ -48,6 +49,9 @@ public class Player : MonoBehaviour
     {
         private set
         {
+
+            if (isDead) return;
+
             if(value != _hmove)
             {
                 _hmove = value;
@@ -95,6 +99,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return;
         VerticalDelta = rbody.velocity.y;
         HMov = Input.GetAxis("Horizontal");
         Jump();
@@ -138,4 +143,20 @@ public class Player : MonoBehaviour
         transform.localScale = temp;
     }
 
+    private void Die()
+    {
+        if (isDead) return;
+
+        isDead = true;
+        animator.SetTrigger("deathTrigger");
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Die();
+        }
+    }
 }
