@@ -531,8 +531,8 @@ MonoBehaviour:
   patrolSpeed: 2
   chaseSpeed: 4
   attackRange: 0.5
-  patrolRange: 3
-  chaselRange: 2
+  patrolRange: 5
+  chaselRange: 7
   patrolDelay: 3
   player: {fileID: 995729574}
 --- !u!50 &928638055
