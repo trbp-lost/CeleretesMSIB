@@ -148,18 +148,13 @@ Transform:
   m_GameObject: {fileID: 221929406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7613719, y: -0.06400263, z: 0.11826475}
+  m_LocalPosition: {x: 1.76, y: -0.06400263, z: 0.11826475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 928638053}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &382844395 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1143606965773623691, guid: 909e0bb22453bdc4e9a6743412c1b9ca, type: 3}
-  m_PrefabInstance: {fileID: 5145343110975233901}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &578750196
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +167,7 @@ GameObject:
   - component: {fileID: 578750198}
   - component: {fileID: 578750199}
   - component: {fileID: 578750200}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +310,7 @@ GameObject:
   - component: {fileID: 855026868}
   - component: {fileID: 855026869}
   - component: {fileID: 855026870}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,8 +528,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2a6530bd375c24fa3da4c5d258e409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 382844395}
-  speed: 5
+  patrolSpeed: 2
+  chaseSpeed: 4
+  attackRange: 0.5
+  patrolRange: 3
+  chaselRange: 2
+  patrolDelay: 3
+  player: {fileID: 995729574}
 --- !u!50 &928638055
 Rigidbody2D:
   serializedVersion: 4
@@ -597,6 +597,11 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0040868376, y: -0.035760127}
   m_Size: {x: 0.22600174, y: 0.24847952}
   m_Direction: 0
+--- !u!4 &995729574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1143606965773623691, guid: 909e0bb22453bdc4e9a6743412c1b9ca, type: 3}
+  m_PrefabInstance: {fileID: 5145343110975233901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1031942583
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +613,7 @@ GameObject:
   - component: {fileID: 1031942586}
   - component: {fileID: 1031942585}
   - component: {fileID: 1031942584}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Floor (1)
   m_TagString: Obtacles
   m_Icon: {fileID: 0}
@@ -721,8 +726,39 @@ Transform:
   m_GameObject: {fileID: 1031942583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.140649, y: -2.7998292, z: 0}
+  m_LocalPosition: {x: -13.66, y: -3.94, z: 0}
   m_LocalScale: {x: -0.2331, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1098457012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1098457013}
+  m_Layer: 0
+  m_Name: NavMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1098457013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098457012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.872761, y: -1.1030598, z: -8.480888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -803,7 +839,7 @@ GameObject:
   - component: {fileID: 1786236526}
   - component: {fileID: 1786236525}
   - component: {fileID: 1786236524}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,6 +1061,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 484690696640299406, guid: 909e0bb22453bdc4e9a6743412c1b9ca, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1143606965773623691, guid: 909e0bb22453bdc4e9a6743412c1b9ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3797377
@@ -1069,7 +1109,8 @@ PrefabInstance:
       propertyPath: canControl
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3565099436854913309, guid: 909e0bb22453bdc4e9a6743412c1b9ca, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1083,3 +1124,4 @@ SceneRoots:
   - {fileID: 2048173713}
   - {fileID: 221929407}
   - {fileID: 1031942586}
+  - {fileID: 1098457013}
