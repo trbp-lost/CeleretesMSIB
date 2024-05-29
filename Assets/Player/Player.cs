@@ -50,8 +50,6 @@ public class Player : MonoBehaviour
         private set
         {
 
-            if (isDead) return;
-
             if(value != _hmove)
             {
                 _hmove = value;
@@ -62,7 +60,7 @@ public class Player : MonoBehaviour
                 }
             }
 
-            if (!canControl) _hmove = 0;
+            if (!canControl || isDead) _hmove = 0;
             
             animator.SetFloat("xSpeed", Mathf.Abs(_hmove));
         }
@@ -75,7 +73,7 @@ public class Player : MonoBehaviour
     {
         private set
         {
-            if (!canControl) return;
+            if (!canControl || isDead) return;
 
             if (_faceRight != value)
             {
@@ -99,7 +97,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return;
         VerticalDelta = rbody.velocity.y;
         HMov = Input.GetAxis("Horizontal");
         Jump();
@@ -154,7 +151,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") )
         {
             Die();
         }

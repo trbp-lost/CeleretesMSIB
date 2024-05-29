@@ -13,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     public float patrolDelay = 3f;
     public Player player;
 
+    public bool keepChasing;
     private bool isChasing = false;
     private bool isPatrolling = false;
     private bool isfacingRight = false;
@@ -26,8 +27,9 @@ public class EnemyAI : MonoBehaviour
     {
         target = player.GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
-        originalPosition = transform.position;
         animator = GetComponent<Animator>();
+
+        originalPosition = transform.position;
         StartCoroutine(Patrolling());
     }
 
@@ -43,16 +45,21 @@ public class EnemyAI : MonoBehaviour
         if (distanceToPlayer < chaselRange)
         {
             isChasing = true;
-            animator.SetBool("isMove", false);
             ChasePlayer();
 
         }
         else
         {
-            if (isChasing)
+            if (isChasing && !keepChasing)
             {
                 isChasing = false;
                 rb.velocity = Vector2.zero; 
+            }
+
+            if (isChasing && keepChasing)
+            {
+                isChasing = true;
+                ChasePlayer();
             }
 
             if (!isPatrolling)
@@ -60,10 +67,6 @@ public class EnemyAI : MonoBehaviour
                 StartCoroutine(Patrolling());
             }
 
-            if (!isPatrolling && !isChasing)
-            {
-                animator.SetBool("isMove", false);
-            }
 
         }
 
@@ -71,7 +74,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrol()
     {
-
+        animator.SetBool("isMove", false);
         int randomX = Random.Range(-patrolRange, patrolRange);
         if (transform.position.x > originalPosition.x + patrolRange || transform.position.x < originalPosition.x - patrolRange)
         {
@@ -88,9 +91,6 @@ public class EnemyAI : MonoBehaviour
     IEnumerator Patrolling()
     {
         isPatrolling = true;
-        animator.SetBool("isMove", isPatrolling);
-        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-
         while (!isChasing)
         {
             Patrol();
@@ -98,15 +98,11 @@ public class EnemyAI : MonoBehaviour
         }
 
         isPatrolling = false;
-        animator.SetBool("isMove", isPatrolling);
-        Debug.Log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-
-
     }
 
     private void ChasePlayer()
     {
-        animator.SetBool("isMove", isChasing);
+        animator.SetBool("isMove", true);
 
         Vector2 direction = (target.position - transform.position).normalized;
         Vector3 chaseLenght = transform.position + new Vector3(direction.x, direction.y, transform.position.z);
