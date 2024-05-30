@@ -5,15 +5,16 @@ using UnityEngine;
 public class TriggerEventResponse : MonoBehaviour
 {
     public TriggerEvent triggerObject;
+    public Manager manager;
+    //public Faded faded;
+
+    public AudioSource audioSource;
+    public AudioClip audioClip;
+    
     public bool destroyRespon;
-    public bool showHideGameobject;
+    public bool IsShowHide;
 
     private int triggerCounter = 0;
-
-    void Update()
-    {
-        
-    }
 
     public void SelfDestroyObject()
     {
@@ -22,8 +23,7 @@ public class TriggerEventResponse : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-
-        if (collision.collider.tag == "Player" && triggerObject.isTrigger && destroyRespon == true)
+        if (collision.collider.tag != "Player" && triggerObject.isTrigger && destroyRespon)
         {
             if (Input.GetKeyDown(KeyCode.F)) triggerCounter += 1;
             Debug.Log(triggerCounter);
@@ -34,10 +34,18 @@ public class TriggerEventResponse : MonoBehaviour
 
             }
         }
+    }
 
-        if (collision.collider.tag == "Player" && triggerObject.isTrigger && showHideGameobject == true)
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") && triggerObject.isTrigger && IsShowHide)
         {
-            gameObject.SetActive(!gameObject.active);
+            if (audioClip != null) audioSource.PlayOneShot(audioClip);
+
+            //faded.fadedin = true;
+            //StartCoroutine(manager.CountDown(5f));
+            Debug.Log("aaaaaaaaaaaa");
+            manager.MoveToScene("Menu");
         }
     }
 

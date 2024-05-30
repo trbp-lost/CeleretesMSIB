@@ -638,7 +638,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 398544928}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 491df81f10657b344afc9a13a3287c84, type: 2}
+  m_Material: {fileID: 6200000, guid: 368f42f7188a40f4983b09f0fcc36de3, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

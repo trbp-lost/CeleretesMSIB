@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private bool isDead = false;
     private Rigidbody2D rbody;
     private Animator animator;
+    private AudioSource audioSource;
+    public AudioClip deadSound;
 
     [HideInInspector] public bool canControl = true;
 
@@ -88,6 +90,7 @@ public class Player : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -145,6 +148,8 @@ public class Player : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
+        if(deadSound != null) audioSource.PlayOneShot(deadSound);
+
         animator.SetTrigger("deathTrigger");
 
     }
