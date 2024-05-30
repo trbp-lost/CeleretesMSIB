@@ -1,0 +1,61 @@
+using System;
+using UnityEngine;
+
+public class MovementSpeed : MonoBehaviour
+{
+    private float horizontal;
+    private float speed = 12f;
+    private float jumpingPower = 16f;
+    private bool isFacingRight = true;
+
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+
+    Animator animator;
+
+    private void Start()
+    {
+        Animator animator2 = GetComponent<Animator>();
+    }
+    public bool IsFacingRight => isFacingRight;
+
+    void Update()
+    {
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        }
+
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
+
+        Flip();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        animator.SetFloat("MovementPocong", Math.Abs(rb.velocity.x));
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
+}
