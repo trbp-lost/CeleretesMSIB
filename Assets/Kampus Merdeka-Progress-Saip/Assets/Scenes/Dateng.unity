@@ -3369,6 +3369,8 @@ GameObject:
   - component: {fileID: 1977710374}
   - component: {fileID: 1977710373}
   - component: {fileID: 1977710375}
+  - component: {fileID: 1977710377}
+  - component: {fileID: 1977710376}
   m_Layer: 0
   m_Name: gantiScene
   m_TagString: Untagged
@@ -3488,6 +3490,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1977710376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977710369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91e3f187d84b8b94db6275495f8f9f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1977710377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977710369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5c1e5205c2b1c49bb54792c33505a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanvasGrp: {fileID: 685834316}
+  fadedin: 0
+  fadedout: 0
+  TimeToFade: 1
 --- !u!1 &1981101899
 GameObject:
   m_ObjectHideFlags: 0

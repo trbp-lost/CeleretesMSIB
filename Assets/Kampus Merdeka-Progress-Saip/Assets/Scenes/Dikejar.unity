@@ -313,11 +313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4030624642a1c714fb7a309657513879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 39197721}
-  groundCheck: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!95 &39197723
 Animator:
   serializedVersion: 5
@@ -1593,7 +1588,6 @@ GameObject:
   m_Component:
   - component: {fileID: 782986963}
   - component: {fileID: 782986962}
-  - component: {fileID: 782986965}
   - component: {fileID: 782986964}
   m_Layer: 0
   m_Name: mansion
@@ -1678,25 +1672,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 782986960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba9f3b45890d8bf48b7713b86410af06, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c5c1e5205c2b1c49bb54792c33505a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasGrp: {fileID: 0}
+  CanvasGrp: {fileID: 156861052}
   fadedin: 0
   fadedout: 0
-  TimeToFade: 0
---- !u!114 &782986965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782986960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0715cd5eb639f434b81cefe9e50cca3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  TimeToFade: 1
 --- !u!1 &801185156
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,7 +3089,7 @@ MonoBehaviour:
   groundCheck: {fileID: 46230444}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
 --- !u!95 &1556054516
 Animator:
   serializedVersion: 5
@@ -3423,8 +3405,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1674509383}
   - component: {fileID: 1674509382}
-  - component: {fileID: 1674509381}
   - component: {fileID: 1674509384}
+  - component: {fileID: 1674509386}
   - component: {fileID: 1674509385}
   m_Layer: 0
   m_Name: Square
@@ -3433,22 +3415,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1674509381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674509380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba9f3b45890d8bf48b7713b86410af06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanvasGrp: {fileID: 156861052}
-  fadedin: 0
-  fadedout: 0
-  TimeToFade: 1
 --- !u!212 &1674509382
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3570,9 +3536,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1674509380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e675669bdc727934d963ac47f7101b7c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c92c73cc8ecdec40a858419f86021cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1674509386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674509380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5c1e5205c2b1c49bb54792c33505a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanvasGrp: {fileID: 156861052}
+  fadedin: 0
+  fadedout: 0
+  TimeToFade: 1
 --- !u!1 &1735320419
 GameObject:
   m_ObjectHideFlags: 0
@@ -4076,7 +4058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1853575477
 Transform:
   m_ObjectHideFlags: 0
@@ -4272,8 +4254,8 @@ GameObject:
   - component: {fileID: 1963372840}
   - component: {fileID: 1963372839}
   - component: {fileID: 1963372838}
-  - component: {fileID: 1963372841}
   - component: {fileID: 1963372842}
+  - component: {fileID: 1963372843}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4355,22 +4337,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1963372841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1963372837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a12f538ff652bf446b0d1687a6c1a4a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1556054510}
-  offset: {x: 0, y: 0, z: 0}
-  smoothSpeed: 0.1
-  tiltAmount: 17
 --- !u!114 &1963372842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4405,6 +4371,22 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1963372843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963372837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e13fa04f234004cb76321934c772e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1556054510}
+  offset: {x: 0, y: 0, z: 0}
+  smoothSpeed: 0.1
+  tiltAmount: 17
 --- !u!1 &1982734947
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,7 +4520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2378ba113cdc304a8093a0a62c85f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxSpeed: 0.04
 --- !u!1 &2011777229
 GameObject:
   m_ObjectHideFlags: 0
