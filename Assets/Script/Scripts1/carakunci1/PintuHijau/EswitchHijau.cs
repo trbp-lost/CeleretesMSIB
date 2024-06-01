@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Switch1 : MonoBehaviour
 {
-    [SerializeField] private Pintu1 _doorBehavior;
+    [SerializeField] private PintuHijau _doorBehavior;
 
     [SerializeField] private bool _isDoorOpenSwitch;
     [SerializeField] private bool _isDoorCloseSwitch;

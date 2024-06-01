@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pintu0 : MonoBehaviour
+public class PintuHijau : MonoBehaviour
 {
     public bool _isDoorOpen = false;
     private Vector3 _doorClosedPos;
