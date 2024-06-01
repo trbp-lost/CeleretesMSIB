@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class parallaxController : MonoBehaviour
+public class ParallaxController : MonoBehaviour
 {
     Transform cam;
     Vector3 camStartPos;

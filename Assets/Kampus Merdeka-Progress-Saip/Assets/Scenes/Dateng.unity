@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1072,21 +1073,25 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &519420032
-Transform:
+--- !u!224 &519420032
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.15, y: 2.4095998, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.15, y: 2.4095998}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519420033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,13 +1135,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a12f538ff652bf446b0d1687a6c1a4a9, type: 3}
+  m_Script: {fileID: 11500000, guid: 76e13fa04f234004cb76321934c772e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2036629062}
   offset: {x: 0, y: 0, z: 0}
   smoothSpeed: 0.1
   tiltAmount: 17
+--- !u!222 &519420035
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_CullTransparentMesh: 1
 --- !u!1 &544130791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,7 +1861,7 @@ GameObject:
   - component: {fileID: 1029610566}
   - component: {fileID: 1029610568}
   - component: {fileID: 1029610567}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: jalan rumput (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2562,7 +2575,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1468328235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2378ba113cdc304a8093a0a62c85f40, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d20c5066fd78994f8ee08d0f6166e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxSpeed: 0.04
@@ -2929,7 +2942,7 @@ GameObject:
   - component: {fileID: 1695316805}
   - component: {fileID: 1695316807}
   - component: {fileID: 1695316806}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: jalan rumput (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3142,7 +3155,7 @@ GameObject:
   - component: {fileID: 1907437271}
   - component: {fileID: 1907437273}
   - component: {fileID: 1907437272}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: jalan rumput (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3355,8 +3368,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1977710374}
   - component: {fileID: 1977710373}
-  - component: {fileID: 1977710372}
-  - component: {fileID: 1977710371}
   - component: {fileID: 1977710375}
   m_Layer: 0
   m_Name: gantiScene
@@ -3365,34 +3376,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1977710371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977710369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba9f3b45890d8bf48b7713b86410af06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanvasGrp: {fileID: 685834316}
-  fadedin: 0
-  fadedout: 0
-  TimeToFade: 1
---- !u!114 &1977710372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977710369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0715cd5eb639f434b81cefe9e50cca3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1977710373
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3516,7 +3499,7 @@ GameObject:
   - component: {fileID: 1981101900}
   - component: {fileID: 1981101901}
   - component: {fileID: 1981101902}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: jalan rumput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3805,14 +3788,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2036629060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98dfb64a20393b74aa459a1beb978dd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 18b6c42384cf71944bc3e5fab225173c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2036629063}
   groundCheck: {fileID: 596836809}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
 --- !u!1 &2039709645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,7 +3937,7 @@ GameObject:
   - component: {fileID: 2051943432}
   - component: {fileID: 2051943434}
   - component: {fileID: 2051943433}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: jalan rumput (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

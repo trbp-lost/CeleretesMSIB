@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class parallax : MonoBehaviour
+public class Parallax : MonoBehaviour
 {
     [Range(0f, 0.5f)] public float speed = 0.4f;
     Material mat;
