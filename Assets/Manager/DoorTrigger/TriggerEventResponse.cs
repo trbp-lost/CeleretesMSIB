@@ -6,7 +6,6 @@ public class TriggerEventResponse : MonoBehaviour
 {
     public TriggerEvent triggerObject;
     public Manager manager;
-    //public Faded faded;
 
     public AudioSource audioSource;
     public AudioClip audioClip;
@@ -23,7 +22,7 @@ public class TriggerEventResponse : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.tag != "Player" && triggerObject.isTrigger && destroyRespon)
+        if (collision.collider.tag == "Player" && triggerObject.isTrigger && destroyRespon)
         {
             if (Input.GetKeyDown(KeyCode.F)) triggerCounter += 1;
             Debug.Log(triggerCounter);
@@ -42,9 +41,6 @@ public class TriggerEventResponse : MonoBehaviour
         {
             if (audioClip != null) audioSource.PlayOneShot(audioClip);
 
-            //faded.fadedin = true;
-            //StartCoroutine(manager.CountDown(5f));
-            Debug.Log("aaaaaaaaaaaa");
             manager.MoveToScene("Menu");
         }
     }

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float jumpForce = 5f;
 
-    private bool isDead = false;
+    public bool isDead = false;
     private Rigidbody2D rbody;
     private Animator animator;
     private AudioSource audioSource;

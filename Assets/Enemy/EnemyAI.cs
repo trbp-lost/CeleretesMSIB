@@ -16,12 +16,16 @@ public class EnemyAI : MonoBehaviour
     public bool keepChasing;
     private bool isChasing = false;
     private bool isPatrolling = false;
-    private bool isfacingRight = false;
+    private bool isFacingRight = true;
+    private int audioChasePlayed = 1;
 
     private Rigidbody2D rb;
     private Transform target;
     private Vector3 originalPosition;
     private Animator animator;
+
+    public AudioSource audioSource;
+    public AudioClip chaseSound;
 
     private void Start()
     {
@@ -45,11 +49,23 @@ public class EnemyAI : MonoBehaviour
         if (distanceToPlayer < chaselRange)
         {
             isChasing = true;
+
+            if (audioSource != null || chaseSound != null)
+            {
+                if (audioSource.isPlaying == false && audioChasePlayed == 0)
+                {
+                    audioChasePlayed = 1;
+                    audioSource.PlayOneShot(chaseSound);
+
+                }
+            }
+
             ChasePlayer();
 
         }
         else
         {
+            audioChasePlayed = 0;
             if (isChasing && !keepChasing)
             {
                 isChasing = false;
@@ -67,7 +83,6 @@ public class EnemyAI : MonoBehaviour
                 StartCoroutine(Patrolling());
             }
 
-
         }
 
     }
@@ -80,7 +95,6 @@ public class EnemyAI : MonoBehaviour
         {
             randomX = -randomX;
         }
-        Debug.Log("rng =" + randomX + "\ntransform = " + transform.position.x);
 
         Vector3 newDirection = new Vector3(randomX, transform.position.y, transform.position.z);
         FaceDirection(0, randomX);
@@ -102,8 +116,10 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
-        animator.SetBool("isMove", true);
+        if (player.isDead == true) return;
 
+        animator.SetBool("isMove", true);
+        
         Vector2 direction = (target.position - transform.position).normalized;
         Vector3 chaseLenght = transform.position + new Vector3(direction.x, direction.y, transform.position.z);
         FaceDirection(transform.position.x, chaseLenght.x);
@@ -118,8 +134,8 @@ public class EnemyAI : MonoBehaviour
 
     private void FaceDirection(float point, float target)
     {
-        if (point > target ) transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        if (point < target ) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (point > target) transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (point < target) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
     }
 

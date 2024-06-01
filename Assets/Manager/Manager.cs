@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Manager : MonoBehaviour
 {
     private static bool gameIsPaused = false;
-    public GameObject pausePanel;
-    public GameObject settingPanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] GameObject settingPanel;
 
     public bool canBePauseScene = true;
 
