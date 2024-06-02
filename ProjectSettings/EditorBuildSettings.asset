@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d34fea35e795a4c4f94a0881e2fcb7f8
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: a4ea5984438a08c4ea0cdc0d821fd8a6
-  - enabled: 1
     path: Assets/Kampus Merdeka-Progress-Saip/Assets/Scenes/Dateng.unity
     guid: 6de65b238c958224e80a394cf59e782e
   - enabled: 1
