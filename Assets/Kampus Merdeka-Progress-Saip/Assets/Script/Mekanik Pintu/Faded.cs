@@ -10,6 +10,7 @@ public class Faded : MonoBehaviour
 
     public float TimeToFade;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -42,6 +43,8 @@ public class Faded : MonoBehaviour
 
     public void FadedIn()
     {
+        CanvasGrp.gameObject.SetActive(true);
+
         fadedin = true;
     }
 

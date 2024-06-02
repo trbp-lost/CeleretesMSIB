@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
         transform.localScale = temp;
     }
 
-    private void Die()
+    public void Die()
     {
         if (isDead) return;
 
@@ -154,11 +154,4 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy") )
-        {
-            Die();
-        }
-    }
 }

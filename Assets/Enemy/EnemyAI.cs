@@ -14,15 +14,18 @@ public class EnemyAI : MonoBehaviour
     public Player player;
 
     public bool keepChasing;
+    public bool enableHide = false;
     private bool isChasing = false;
     private bool isPatrolling = false;
     private bool isFacingRight = true;
+    private bool isPlayerHide = false;
     private int audioChasePlayed = 1;
 
     private Rigidbody2D rb;
     private Transform target;
     private Vector3 originalPosition;
     private Animator animator;
+    private PlayerHiding hiding;
 
     public AudioSource audioSource;
     public AudioClip chaseSound;
@@ -32,6 +35,7 @@ public class EnemyAI : MonoBehaviour
         target = player.GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if (enableHide) hiding = target.GetComponent<PlayerHiding>();
 
         originalPosition = transform.position;
         StartCoroutine(Patrolling());
@@ -40,13 +44,14 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         float distanceToPlayer = Vector2.Distance(transform.position, target.position);
-
-        if (distanceToPlayer < attackRange)
+        if (enableHide) isPlayerHide = hiding.isHiding;
+        
+        if (distanceToPlayer < attackRange && !isPlayerHide)
         {
             AttackPlayer();
         }
         
-        if (distanceToPlayer < chaselRange)
+        if (distanceToPlayer < chaselRange && !isPlayerHide)
         {
             isChasing = true;
 
@@ -72,9 +77,18 @@ public class EnemyAI : MonoBehaviour
                 rb.velocity = Vector2.zero; 
             }
 
-            if (isChasing && keepChasing)
+            if (keepChasing)
             {
                 isChasing = true;
+                if (audioSource != null || chaseSound != null)
+                {
+                    if (audioSource.isPlaying == false && audioChasePlayed == 0)
+                    {
+                        audioChasePlayed = 1;
+                        audioSource.PlayOneShot(chaseSound);
+
+                    }
+                }
                 ChasePlayer();
             }
 
@@ -144,5 +158,14 @@ public class EnemyAI : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && !isPlayerHide)
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            
+            player.Die();
+        }
+    }
 
 }

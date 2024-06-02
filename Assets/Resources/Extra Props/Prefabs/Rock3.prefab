@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2966738004428004453}
   m_Layer: 0
   m_Name: Rock3
-  m_TagString: Untagged
+  m_TagString: Obtacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 2501164582231920004}
   m_Layer: 0
   m_Name: rockCol2
-  m_TagString: Untagged
+  m_TagString: Obtacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 8240485800538350594}
   m_Layer: 0
   m_Name: rockCol3
-  m_TagString: Untagged
+  m_TagString: Obtacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 3855318271598425192}
   m_Layer: 0
   m_Name: rockCol1
-  m_TagString: Untagged
+  m_TagString: Obtacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 2933284599288994342}
   m_Layer: 0
   m_Name: rockCol3 (1)
-  m_TagString: Untagged
+  m_TagString: Obtacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

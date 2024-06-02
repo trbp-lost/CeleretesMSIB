@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class PlayerHiding : MonoBehaviour
 {
-    private bool isHiding = false;
+    public bool isHiding = false;
     private bool isNearHideSpot = false;
     private Transform hideSpot;
     private Vector3 originalPosition;
-    private Movement playerMovement;
+    //private Movement playerMovement;
+    private Player playerMovement;
+    private Collider2D playerCollider;
     private Rigidbody2D rb;
 
     private void Start()
     {
+
         // Get the PlayerMovement component attached to the player
-        playerMovement = GetComponent<Movement>();
+        //playerMovement = GetComponent<Movement>();
+        playerMovement = GetComponent<Player>();
         if (playerMovement == null)
         {
             Debug.LogError("Movement component not found on the player.");
@@ -39,6 +43,7 @@ public class PlayerHiding : MonoBehaviour
                 EnterHideSpot();
             }
         }
+
     }
 
     private void EnterHideSpot()
