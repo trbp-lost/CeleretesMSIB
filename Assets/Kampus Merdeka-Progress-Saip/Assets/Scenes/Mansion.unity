@@ -3462,6 +3462,10 @@ PrefabInstance:
       propertyPath: deadSound
       value: 
       objectReference: {fileID: 8300000, guid: 3f14d318822752e4cb7dd5dbe99106d7, type: 3}
+    - target: {fileID: 1960872143138234097, guid: 2cf33d67476198940b6e0a412249bfb0, type: 3}
+      propertyPath: jumpForce
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 2974244621270472417, guid: 2cf33d67476198940b6e0a412249bfb0, type: 3}
       propertyPath: m_Name
       value: Player (1)
