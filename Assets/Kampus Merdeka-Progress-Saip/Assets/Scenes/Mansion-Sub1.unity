@@ -2379,7 +2379,7 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Potongan Koran
-        icon: {fileID: 21300000, guid: 324b4e299bcb1b44e915d7fdea633d57, type: 3}
+        icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
         iconLocation: 1
       line: Tanggal 4 maret jam 21.23, ditemukan 4 mayat yaitu seorang ayah, ibu,
         dan tiga anak. Anak-anak kesayangan itu bernama ... , ... , .... . Hanya
