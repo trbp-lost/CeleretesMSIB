@@ -148,9 +148,23 @@ public class EnemyAI : MonoBehaviour
 
     private void FaceDirection(float point, float target)
     {
-        if (point > target) transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        if (point < target) transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        if (target > point && !isFacingRight)
+        {
+            Flip();
+        }
+        else if (target < point && isFacingRight)
+        {
+            Flip();
+        }
 
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
     public void Death()
