@@ -751,18 +751,19 @@ MonoBehaviour:
         name: Gabriel
         icon: {fileID: 21300000, guid: e544aaadd618b4946bfdfb7ddd12220a, type: 3}
         iconLocation: 1
-      line: Batang pohon tersebut menutupi jalan kita. Lucas tolong bantu mereka
-        mendorong batang pohon tersebut untuk membukakan jalan
+      line: The tree trunk is blocking our way. Lucas please help them push the tree
+        trunk to open the way.
     - character:
         name: Lucas
         icon: {fileID: 21300000, guid: 77447dc913a39b843b930f60f12def3a, type: 3}
         iconLocation: 2
-      line: 'baiklah '
+      line: 'Okay '
     - character:
-        name: Petunjuk
+        name: Instructions
         icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
         iconLocation: 1
-      line: Gunakan key untuk berjalan dan lalu tekan F sebanyak mungkin sampai terbuka
+      line: Use the key to walk and then press F as many times as possible until
+        it opens
 --- !u!1 &357019536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1070,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.8962522, y: 1.5293856}
+  m_Offset: {x: 3.5699644, y: 1.5293856}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1080,7 +1081,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 23.65369, y: 17.275381}
+  m_Size: {x: 22.306265, y: 17.275381}
   m_EdgeRadius: 0
 --- !u!114 &445505507
 MonoBehaviour:
@@ -1100,30 +1101,31 @@ MonoBehaviour:
         name: Lucas
         icon: {fileID: 21300000, guid: 77447dc913a39b843b930f60f12def3a, type: 3}
         iconLocation: 1
-      line: 'Hallo guys! Akhirnya kami tiba di pulau terpencil ini untuk petualangan
-        yang luar biasa, seperti yang kalian lihat kan? Sepertinya konten kali ini
-        akan menjadi konten luar biasa. '
+      line: 'Hello guys! We finally arrived at this remote island for an amazing
+        adventure, as you can see right? It looks like it''s going to be a great
+        content this time. '
     - character:
         name: Graves
         icon: {fileID: 21300000, guid: ce1b3778664780d409800f756c080512, type: 3}
         iconLocation: 2
-      line: kalian yakin ini ide yang baik? Ini terlihat seperti pulau sepi dan menakutkan.
+      line: Are you sure this is a good idea? It looks like a deserted and scary
+        island.
     - character:
         name: Gabriel
         icon: {fileID: 21300000, guid: e544aaadd618b4946bfdfb7ddd12220a, type: 3}
         iconLocation: 3
-      line: 'Graves, jangan khawatir. Kita akan melihat desa terbengkalai ini dan
-        mengetahui apa yang terjadi di sana sebelumnya. '
+      line: 'Graves, don''t worry. We will see this abandoned village and find out
+        what happened there before. '
     - character:
         name: Dominic
         icon: {fileID: 21300000, guid: 9b53add11a8a2534d97403b4145588d5, type: 3}
         iconLocation: 4
-      line: 'Ayok, aku tidak sabar lagi ingin memulai petualang ini! '
+      line: 'Come on, I can''t wait to start this adventure! '
     - character:
         name: Ethan
         icon: {fileID: 21300000, guid: 6a4d0086e12c2b7449b4164f3c81f9ba, type: 3}
         iconLocation: 3
-      line: "Let\u2019s go!!! kita mulai petualangan ini. "
+      line: 'Let''s go!!! let''s start this adventure. '
 --- !u!4 &445505508
 Transform:
   m_ObjectHideFlags: 0
@@ -6215,6 +6217,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 722962814}
     m_Modifications:
+    - target: {fileID: 2049923577258536352, guid: 3e05c0a4c0bfffe4b9bd177337fa92bb, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1945793276}
+    - target: {fileID: 2049923577258536352, guid: 3e05c0a4c0bfffe4b9bd177337fa92bb, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 4335341635592627067, guid: 3e05c0a4c0bfffe4b9bd177337fa92bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

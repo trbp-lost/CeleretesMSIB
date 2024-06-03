@@ -2378,14 +2378,14 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: Potongan Koran
+        name: Piece of Newspaper
         icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
         iconLocation: 1
-      line: Tanggal 4 maret jam 21.23, ditemukan 4 mayat yaitu seorang ayah, ibu,
-        dan tiga anak. Anak-anak kesayangan itu bernama ... , ... , .... . Hanya
-        dua kemungkinan yang terjadi di rumah ini. Lalu seseorang mencari sebuah
-        bukti, namun sangat disayangkan ia tidak bisa ditemukan. Hanya satu-satunya
-        jalan untuk mencari tahu semua ini.
+      line: "On March 4 at 21:23 pm, four bodies were found in this house: a father,
+        a mother and her children. The children were named Vana and Vini.  3 days
+        later in this house something appeared that brought bad luck to the villagers.
+        Only two possibilities happened in this house. Then a person looks for evidence,
+        but unfortunately he cannot be found. Only one way to find\_out\_all\_this."
 --- !u!61 &1613501379
 BoxCollider2D:
   m_ObjectHideFlags: 0
