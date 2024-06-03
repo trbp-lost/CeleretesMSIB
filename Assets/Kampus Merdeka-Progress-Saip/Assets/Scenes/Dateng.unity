@@ -749,19 +749,19 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Gabriel
-        icon: {fileID: 21300000, guid: 8eedc791fe9b2f544830561187f147cb, type: 3}
+        icon: {fileID: 21300000, guid: e544aaadd618b4946bfdfb7ddd12220a, type: 3}
         iconLocation: 1
       line: Batang pohon tersebut menutupi jalan kita. Lucas tolong bantu mereka
         mendorong batang pohon tersebut untuk membukakan jalan
     - character:
         name: Lucas
-        icon: {fileID: 21300000, guid: a78b98a523877894c9e3626b5bab362c, type: 3}
+        icon: {fileID: 21300000, guid: 77447dc913a39b843b930f60f12def3a, type: 3}
         iconLocation: 2
       line: 'baiklah '
     - character:
         name: Petunjuk
-        icon: {fileID: 0}
-        iconLocation: 0
+        icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+        iconLocation: 1
       line: Gunakan key untuk berjalan dan lalu tekan F sebanyak mungkin sampai terbuka
 --- !u!1 &357019536
 GameObject:
@@ -1098,30 +1098,30 @@ MonoBehaviour:
     dialogueLines:
     - character:
         name: Lucas
-        icon: {fileID: 21300000, guid: a78b98a523877894c9e3626b5bab362c, type: 3}
+        icon: {fileID: 21300000, guid: 77447dc913a39b843b930f60f12def3a, type: 3}
         iconLocation: 1
       line: 'Hallo guys! Akhirnya kami tiba di pulau terpencil ini untuk petualangan
         yang luar biasa, seperti yang kalian lihat kan? Sepertinya konten kali ini
         akan menjadi konten luar biasa. '
     - character:
         name: Graves
-        icon: {fileID: 21300000, guid: 4d8b81d9cae7d894884144b5ffa4ba13, type: 3}
+        icon: {fileID: 21300000, guid: ce1b3778664780d409800f756c080512, type: 3}
         iconLocation: 2
       line: kalian yakin ini ide yang baik? Ini terlihat seperti pulau sepi dan menakutkan.
     - character:
         name: Gabriel
-        icon: {fileID: 21300000, guid: 8eedc791fe9b2f544830561187f147cb, type: 3}
+        icon: {fileID: 21300000, guid: e544aaadd618b4946bfdfb7ddd12220a, type: 3}
         iconLocation: 3
       line: 'Graves, jangan khawatir. Kita akan melihat desa terbengkalai ini dan
         mengetahui apa yang terjadi di sana sebelumnya. '
     - character:
         name: Dominic
-        icon: {fileID: 21300000, guid: eb4c28744eb0fb246ad84e050f4eff51, type: 3}
+        icon: {fileID: 21300000, guid: 9b53add11a8a2534d97403b4145588d5, type: 3}
         iconLocation: 4
       line: 'Ayok, aku tidak sabar lagi ingin memulai petualang ini! '
     - character:
         name: Ethan
-        icon: {fileID: 21300000, guid: 2fc18b7345a252b418156f57715f1113, type: 3}
+        icon: {fileID: 21300000, guid: 6a4d0086e12c2b7449b4164f3c81f9ba, type: 3}
         iconLocation: 3
       line: "Let\u2019s go!!! kita mulai petualangan ini. "
 --- !u!4 &445505508
@@ -1134,7 +1134,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.28, y: -1.11, z: -0.9818881}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1145372253}
@@ -2014,7 +2014,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2205,7 +2205,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.1, y: -0.75, z: 0.9818881}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445505508}
@@ -2311,7 +2311,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.75, y: -0.75, z: 0.9818881}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445505508}
@@ -3058,7 +3058,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.7900002, y: -0.75, z: 0.9818881}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445505508}
@@ -4967,15 +4967,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8390284302271138107, guid: 2cf33d67476198940b6e0a412249bfb0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4466977
+      value: 0.49999997
       objectReference: {fileID: 0}
     - target: {fileID: 8390284302271138107, guid: 2cf33d67476198940b6e0a412249bfb0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4466977
+      value: 0.49999997
       objectReference: {fileID: 0}
     - target: {fileID: 8390284302271138107, guid: 2cf33d67476198940b6e0a412249bfb0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4466977
+      value: 0.49999997
       objectReference: {fileID: 0}
     - target: {fileID: 8390284302271138107, guid: 2cf33d67476198940b6e0a412249bfb0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5016,6 +5016,10 @@ PrefabInstance:
     - target: {fileID: 8390284302271138107, guid: 2cf33d67476198940b6e0a412249bfb0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390284302271138107, guid: 2cf33d67476198940b6e0a412249bfb0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5567,8 +5571,8 @@ Transform:
   m_GameObject: {fileID: 1989349854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 81.47, y: 12.74, z: -40.9}
-  m_LocalScale: {x: 0.63761, y: 0.63761, z: 0.63761}
+  m_LocalPosition: {x: 81.47, y: 11.53, z: -40.9}
+  m_LocalScale: {x: 0.57561517, y: 0.57561517, z: 0.57561517}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1755198921}
@@ -6042,7 +6046,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 13.91, y: -0.75, z: 0.9818881}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 445505508}
